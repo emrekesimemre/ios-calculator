@@ -110,8 +110,7 @@ buttonsContainer.addEventListener("click", e =>{
         if (currentDisplayField.innerText !== "") {
           currentDisplayField.innerText = currentDisplayField.innerText /100;
         }
-        break;
-    
+        //currentDisplayField.innerText = currentDisplayField.innerText.substring(0, currentDisplayField.innerText.length - 1);
       default:
         break;
     }
@@ -120,53 +119,20 @@ buttonsContainer.addEventListener("click", e =>{
 })
 
 
+//Set up the time
+const clockEl = document.querySelector(".clock");
+const hourEl = document.querySelector(".hour");
+const minuteEl = document.querySelector(".minute")
 
+const uptadeTime = () => {
+    const currentTime = new Date();
 
+    const currentHour = currentTime.getHours();
+    const currentMinute = currentTime.getMinutes();
 
+    hourEl.textContent = currentHour.toString();
+    minuteEl.textContent = currentMinute.toString().padStart(2,"0");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Set up the time
-// const uptadeTime = () => {
-//     const currentTime = new Date();
-
-//     const currentHour = currentTime.getHours();
-//     const currentMinute = currentTime.getMinutes();
-
-//     hourEl.textContent = currentHour.toString();
-//     minuteEl.textContent = currentMinute.toString().padStart(2,"0");
-
-// }
-// setInterval(uptadeTime, 1000);
-// uptadeTime();
+}
+setInterval(uptadeTime, 1000);
+uptadeTime();
